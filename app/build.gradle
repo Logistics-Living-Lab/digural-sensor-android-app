@@ -9,13 +9,13 @@ def properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
-    compileSdkVersion 31
+    compileSdk 34
 
     defaultConfig {
         applicationId "io.de4l.app"
         minSdkVersion 23
         //!!! MQTT Client Lib does not work for Android 31+ !!!
-        targetSdkVersion 30
+        targetSdkVersion 34
         versionCode 53
         versionName "0.1.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
