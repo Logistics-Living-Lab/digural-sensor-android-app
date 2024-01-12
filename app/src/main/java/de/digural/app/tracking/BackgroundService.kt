@@ -1,5 +1,6 @@
 package de.digural.app.tracking
 
+import android.annotation.SuppressLint
 import android.app.*
 import android.app.PendingIntent.*
 import android.content.BroadcastReceiver
@@ -9,6 +10,7 @@ import android.content.IntentFilter
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import dagger.hilt.android.AndroidEntryPoint
 import de.digural.app.AppConstants
@@ -129,14 +131,19 @@ class BackgroundService() : Service() {
         super.onCreate()
     }
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     private fun registerBroadcastReceivers() {
         mBroadcastReceiver = object : BroadcastReceiver() {
             override fun onReceive(p0: Context?, p1: Intent?) {
                 when (p1?.action) {
                     de.digural.app.AppConstants.TRACKING_NOTIFICATION_STOP_ACTION -> {
-                        Log.i(LOG_TAG, de.digural.app.AppConstants.TRACKING_NOTIFICATION_STOP_ACTION)
+                        Log.i(
+                            LOG_TAG,
+                            de.digural.app.AppConstants.TRACKING_NOTIFICATION_STOP_ACTION
+                        )
                         stopSelf()
                     }
+
                     de.digural.app.AppConstants.FORCE_RECONNECT_ACTION -> {
                         LoggingHelper.logWithCurrentThread(LOG_TAG, "Ble Device found")
 //                        bluetoothDeviceManager.forceReconnect()
@@ -145,15 +152,30 @@ class BackgroundService() : Service() {
 
             }
         }
-        registerReceiver(
-            mBroadcastReceiver,
-            IntentFilter(de.digural.app.AppConstants.TRACKING_NOTIFICATION_STOP_ACTION)
-        )
 
-        registerReceiver(
-            mBroadcastReceiver,
-            IntentFilter(de.digural.app.AppConstants.FORCE_RECONNECT_ACTION)
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(
+                mBroadcastReceiver,
+                IntentFilter(de.digural.app.AppConstants.TRACKING_NOTIFICATION_STOP_ACTION),
+                RECEIVER_NOT_EXPORTED
+            )
+
+            registerReceiver(
+                mBroadcastReceiver,
+                IntentFilter(de.digural.app.AppConstants.FORCE_RECONNECT_ACTION),
+                RECEIVER_NOT_EXPORTED
+            )
+        } else {
+            registerReceiver(
+                mBroadcastReceiver,
+                IntentFilter(de.digural.app.AppConstants.TRACKING_NOTIFICATION_STOP_ACTION)
+            )
+
+            registerReceiver(
+                mBroadcastReceiver,
+                IntentFilter(de.digural.app.AppConstants.FORCE_RECONNECT_ACTION)
+            )
+        }
     }
 
     override fun onDestroy() {
@@ -200,6 +222,7 @@ class BackgroundService() : Service() {
 
                 }
             }
+
             else -> null //Throws error w/o else branch
         }
 
@@ -247,7 +270,10 @@ class BackgroundService() : Service() {
         )
 
         val notification: Notification =
-            NotificationCompat.Builder(this, de.digural.app.AppConstants.TRACKING_NOTIFICATION_CHANNEL_ID)
+            NotificationCompat.Builder(
+                this,
+                de.digural.app.AppConstants.TRACKING_NOTIFICATION_CHANNEL_ID
+            )
                 .setContentTitle("DIGURAL")
                 .setContentText(message)
                 .setSmallIcon(R.drawable.ic_data_transmission_24)
@@ -306,11 +332,12 @@ class BackgroundService() : Service() {
     }
 
     fun getCompatImmutableFlag(): Int {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            FLAG_MUTABLE
-        } else {
-            FLAG_IMMUTABLE
-        }
+//        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//            FLAG_MUTABLE
+//        } else {
+//            FLAG_IMMUTABLE
+//        }
+        return FLAG_IMMUTABLE
     }
 
 
