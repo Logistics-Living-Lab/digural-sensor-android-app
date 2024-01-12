@@ -23,6 +23,10 @@ class PermissionsManager {
             requiredPermissions += Manifest.permission.BLUETOOTH_CONNECT
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requiredPermissions += Manifest.permission.POST_NOTIFICATIONS
+        }
+
         return requiredPermissions
     }
 
