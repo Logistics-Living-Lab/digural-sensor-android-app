@@ -1,9 +1,9 @@
 package de.digural.app
 
-import io.digural.app.auth.AuthManager
+import de.digural.app.auth.AuthManager
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertNotNull
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 
 class AuthManagerTest {

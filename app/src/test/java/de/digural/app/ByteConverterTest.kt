@@ -1,8 +1,8 @@
 package de.digural.app
 
-import io.digural.app.sensor.RuuviTagParser
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import de.digural.app.sensor.RuuviTagParser
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class ByteConverterTest {
 
