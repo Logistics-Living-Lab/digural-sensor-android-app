@@ -61,7 +61,7 @@ class LocationService() {
                         val location = LocationValue(
                             lastLocation.latitude,
                             lastLocation.longitude,
-                            lastLocation.provider,
+                            lastLocation.provider ?: "null",
                             DateTime(lastLocation.time),
                             lastLocation.accuracy,
                             lastLocation.speed,
