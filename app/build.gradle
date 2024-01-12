@@ -13,7 +13,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "io.de4l.app"
+        applicationId "de.lll.digural.senseapp"
         minSdkVersion 23
         //!!! MQTT Client Lib does not work for Android 31+ !!!
         targetSdkVersion 34
@@ -22,7 +22,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders = [
-                'appAuthRedirectScheme': 'io.de4l.app'
+                'appAuthRedirectScheme': 'de.lll.digural.senseapp'
         ]
 
         buildConfigField("String", "AUTH_DISCOVERY_URI", properties['AUTH_DISCOVERY_URI'])
@@ -51,7 +51,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'io.de4l.app'
+    namespace 'de.digural.app'
 }
 
 repositories {
