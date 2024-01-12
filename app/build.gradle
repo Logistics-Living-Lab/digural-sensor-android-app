@@ -114,7 +114,7 @@ dependencies {
     ksp 'com.google.dagger:hilt-android-compiler:2.50'
 
     //Kotlin Flow Extension
-    implementation 'io.github.hoc081098:FlowExt-jvm:0.3.0'
+    implementation 'io.github.hoc081098:FlowExt-jvm:0.7.4'
 
 
     ksp "androidx.room:room-compiler:2.6.1"
