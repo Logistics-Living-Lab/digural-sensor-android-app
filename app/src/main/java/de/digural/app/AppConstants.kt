@@ -14,7 +14,8 @@ class AppConstants {
         val AUTH_SCOPES = arrayOf("openid", "profile")
         const val AUTH_DISCOVERY_URI = de.digural.app.BuildConfig.AUTH_DISCOVERY_URI
         const val AUTH_USERNAME_CLAIM_KEY = de.digural.app.BuildConfig.AUTH_USERNAME_CLAIM_KEY
-        const val AUTH_MQTT_CLAIM_RESOURCE = de.digural.app.BuildConfig.AUTH_MQTT_CLAIM_RESOURCE
+
+        //        const val AUTH_MQTT_CLAIM_RESOURCE = de.digural.app.BuildConfig.AUTH_MQTT_CLAIM_RESOURCE
         const val AUTH_MQTT_CLAIM_ROLE = de.digural.app.BuildConfig.AUTH_MQTT_CLAIM_ROLE
 
         // BLUETOOTH
@@ -53,7 +54,8 @@ class AppConstants {
         const val TRACKING_NOTIFICATION_CHANNEL_NAME = "diGuRaL Tracking"
 
         //WEB VIEW
-        const val DIGURAL_INFO_URL = "https://bmdv.bund.de/SharedDocs/DE/Artikel/DG/mfund-projekte/digural.html"
+        const val DIGURAL_INFO_URL =
+            "https://bmdv.bund.de/SharedDocs/DE/Artikel/DG/mfund-projekte/digural.html"
 
         //HEARTBEAT
         const val HEARTBEAT_INTERVAL_SECONDS = 60L

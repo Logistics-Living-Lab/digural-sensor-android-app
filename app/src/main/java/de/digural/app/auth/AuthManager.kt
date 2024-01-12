@@ -135,14 +135,15 @@ class AuthManager(val application: Application) {
             val accessToken =
                 tokens.accessToken ?: throw TokenPermissionException("Access Token is missing")
 
-            val usernameFromToken = jwt.getClaim(de.digural.app.AppConstants.AUTH_USERNAME_CLAIM_KEY).asString()
+            val usernameFromToken =
+                jwt.getClaim(de.digural.app.AppConstants.AUTH_USERNAME_CLAIM_KEY).asString()
             val roles = getResourceRolesFromToken(JWT(accessToken))
             if (usernameFromToken != null && tokens.accessToken != null && tokens.refreshToken != null) {
                 val userInfo = UserInfo(usernameFromToken, roles)
 
                 //CHECK MQTT ACCESS
                 if (!userInfo.hasResourceRole(
-                        de.digural.app.AppConstants.AUTH_MQTT_CLAIM_RESOURCE,
+                        de.digural.app.AppConstants.AUTH_CLIENT_ID,
                         de.digural.app.AppConstants.AUTH_MQTT_CLAIM_ROLE
                     )
                 ) {
@@ -241,7 +242,8 @@ class AuthManager(val application: Application) {
 
     private fun hasTokenMqttAccess(token: JWT): Boolean {
         val resourcesAccessMap = token.getClaim("resource_access").asObject(HashMap::class.java)
-        val resourceRolesObject = resourcesAccessMap?.get(de.digural.app.AppConstants.AUTH_MQTT_CLAIM_RESOURCE)
+        val resourceRolesObject =
+            resourcesAccessMap?.get(de.digural.app.AppConstants.AUTH_CLIENT_ID)
 
         if (resourceRolesObject != null) {
             val resourceRolesMap = resourceRolesObject as Map<String, List<String>>
