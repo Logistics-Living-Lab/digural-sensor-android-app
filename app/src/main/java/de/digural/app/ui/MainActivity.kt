@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNavView: BottomNavigationView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) { 
         super.onCreate(savedInstanceState)
         val time = measureTimeMillis {
             buildLayout()
