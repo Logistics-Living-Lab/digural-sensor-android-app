@@ -30,6 +30,6 @@ class InfoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        wvInfo.loadUrl(de.digural.app.AppConstants.DE4L_INFO_URL)
+        wvInfo.loadUrl(de.digural.app.AppConstants.DIGURAL_INFO_URL)
     }
 }

@@ -11,7 +11,7 @@ class AuthManagerTest {
     private lateinit var authManager: AuthManager
 
     init {
-        val application: De4lApplication = Mockito.mock(De4lApplication::class.java)
+        val application: DiguralApplication = Mockito.mock(DiguralApplication::class.java)
         authManager = AuthManager(application)
     }
 

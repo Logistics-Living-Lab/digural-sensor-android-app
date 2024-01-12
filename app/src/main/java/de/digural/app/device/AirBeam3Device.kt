@@ -1,7 +1,7 @@
 package de.digural.app.device
 
 import android.bluetooth.BluetoothDevice
-import de.digural.app.De4lApplication
+import de.digural.app.DiguralApplication
 import de.digural.app.bluetooth.AirBeam3BleConnection
 import de.digural.app.bluetooth.BluetoothConnectionState
 import de.digural.app.bluetooth.BluetoothDeviceType
@@ -16,7 +16,7 @@ class AirBeam3Device(
 ) : BleDevice(macAddress, targetConnectionState) {
 
     override fun getBleConnection(): BleManager {
-        return AirBeam3BleConnection(De4lApplication.context, object :
+        return AirBeam3BleConnection(DiguralApplication.context, object :
             AirBeam3BleConnection.ConnectionListener {
             override fun onDisconnected() {
                 this@AirBeam3Device.onDisconnected()

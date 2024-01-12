@@ -248,7 +248,7 @@ class BackgroundService() : Service() {
 
         val notification: Notification =
             NotificationCompat.Builder(this, de.digural.app.AppConstants.TRACKING_NOTIFICATION_CHANNEL_ID)
-                .setContentTitle("DE4L")
+                .setContentTitle("DIGURAL")
                 .setContentText(message)
                 .setSmallIcon(R.drawable.ic_data_transmission_24)
                 .setContentIntent(pendingIntent)

@@ -10,6 +10,7 @@ import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
 import de.digural.app.AppConstants
+import de.digural.app.BuildConfig
 import kotlinx.coroutines.*
 import org.joda.time.DateTime
 import kotlin.coroutines.resume
@@ -125,7 +126,7 @@ class UpdateManager(
 
     companion object {
         private val LAST_UPDATE_TIMESTAMP_ISO_KEY =
-            "io.de4l.app.update.UpdateCheckManager::lastUpdateTimestampIso"
+            "${BuildConfig.APPLICATION_ID}.update.UpdateCheckManager::lastUpdateTimestampIso"
     }
 
     class CheckUpdateResponse(

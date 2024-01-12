@@ -5,7 +5,7 @@ import android.content.Context
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class De4lApplication : Application() {
+class DiguralApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

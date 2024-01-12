@@ -178,6 +178,6 @@ class TrackingManager @Inject constructor(
 
     companion object {
         private val APPLICATION_ID_KEY =
-            "io.de4l.app.update.TrackingManager::applicationId"
+            "${BuildConfig.APPLICATION_ID}.update.TrackingManager::applicationId"
     }
 }

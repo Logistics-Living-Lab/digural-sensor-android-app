@@ -40,7 +40,7 @@ class DevicesViewModel @Inject constructor(
     fun onLongPress(view: View, device: DeviceEntity) {
         device.let {
             val builder = AlertDialog.Builder(view.context)
-            builder.setMessage("Delete paired device [${it._macAddress.value}] from DE4L Sensor app?")
+            builder.setMessage("Delete paired device [${it._macAddress.value}] from diGuRaL Sensor app?")
                 .setPositiveButton("Yes") { dialog, id ->
                     onDeviceRemoveClicked(it)
                 }

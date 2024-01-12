@@ -32,13 +32,13 @@ class AppConstants {
         const val MQTT_SERVER_URL = de.digural.app.BuildConfig.MQTT_SERVER_URL
 
         val MQTT_TOPIC_PATTERN_SENSOR_VALUES =
-            if (de.digural.app.BuildConfig.DEBUG) "sensors/%s/de4l-app-v2-debug" else "sensors/%s/de4l-app-v2"
+            if (de.digural.app.BuildConfig.DEBUG) "sensors/%s/digural-app-v1-debug" else "sensors/%s/digural-app-v1"
 
         val MQTT_TOPIC_PATTERN_LOCATION_VALUES =
-            if (de.digural.app.BuildConfig.DEBUG) "locations/%s/de4l-app-debug" else "locations/%s/de4l-app"
+            if (de.digural.app.BuildConfig.DEBUG) "locations/%s/digural-app-debug" else "locations/%s/digural-app"
 
         val HEARTBEAT_TOPIC_PATTERN_LOCATION_VALUES =
-            if (de.digural.app.BuildConfig.DEBUG) "heartbeats/%s/de4l-app-debug" else "heartbeats/%s/de4l-app"
+            if (de.digural.app.BuildConfig.DEBUG) "heartbeats/%s/digural-app-debug" else "heartbeats/%s/digural-app"
 
         //UI
         const val SPLASH_SCREEN_DELAY_IN_SECONDS = 1L
@@ -49,11 +49,11 @@ class AppConstants {
         const val FORCE_RECONNECT_ACTION = "force-reconnect-action"
 
         const val TRACKING_NOTIFICATION_CODE = 2000
-        const val TRACKING_NOTIFICATION_CHANNEL_ID = "de4l-tracking"
-        const val TRACKING_NOTIFICATION_CHANNEL_NAME = "DE4L Tracking"
+        const val TRACKING_NOTIFICATION_CHANNEL_ID = "digural-tracking"
+        const val TRACKING_NOTIFICATION_CHANNEL_NAME = "diGuRaL Tracking"
 
         //WEB VIEW
-        const val DE4L_INFO_URL = "https://de4l.io/en/about-de4l/"
+        const val DIGURAL_INFO_URL = "https://bmdv.bund.de/SharedDocs/DE/Artikel/DG/mfund-projekte/digural.html"
 
         //HEARTBEAT
         const val HEARTBEAT_INTERVAL_SECONDS = 60L
