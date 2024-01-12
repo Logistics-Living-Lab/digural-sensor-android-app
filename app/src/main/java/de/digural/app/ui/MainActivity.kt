@@ -1,12 +1,14 @@
 package de.digural.app.ui
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -19,11 +21,13 @@ import de.digural.app.BuildConfig
 import de.digural.app.R
 import de.digural.app.auth.AuthManager
 import de.digural.app.auth.TokenRefreshException
+import de.digural.app.permission.PermissionsManager
 import de.digural.app.ui.event.NavigationEvent
 import kotlinx.coroutines.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import javax.inject.Inject
+import kotlin.system.exitProcess
 import kotlin.system.measureTimeMillis
 
 @AndroidEntryPoint
@@ -34,11 +38,14 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var authManager: AuthManager
 
+    @Inject
+    lateinit var permissionsManager: PermissionsManager
+
     private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
 
     private lateinit var bottomNavView: BottomNavigationView
 
-    override fun onCreate(savedInstanceState: Bundle?) { 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val time = measureTimeMillis {
             buildLayout()
@@ -65,29 +72,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkPermissions() {
-        var requiredPermissions = arrayOf(
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
+        this.permissionsManager.requestRequiredPermissions(this)
 
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            requiredPermissions += Manifest.permission.BLUETOOTH_SCAN
-            requiredPermissions += Manifest.permission.BLUETOOTH_CONNECT
-        }
-
-        val deniedPermissions = requiredPermissions.filter {
-            ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
-        }
-
-        if (deniedPermissions.isNotEmpty()) {
-            Log.w(LOG_TAG, "Missing permissions: $deniedPermissions")
-            ActivityCompat.requestPermissions(
-                this,
-                deniedPermissions.toTypedArray(),
-                de.digural.app.AppConstants.REQUEST_CODE_PERMISSIONS
-            )
-        }
     }
 
     private fun buildLayout() {
@@ -144,6 +130,35 @@ class MainActivity : AppCompatActivity() {
                 )
             } catch (e: IllegalArgumentException) {
                 Log.w(LOG_TAG, "Navigation: " + e.message)
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == AppConstants.REQUEST_CODE_PERMISSIONS) {
+            if (grantResults.contains(PackageManager.PERMISSION_DENIED)) {
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder
+                    .setMessage("Gimme permissions!")
+                    .setTitle("I am the title")
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                        this.checkPermissions()
+                    }
+                    .setNegativeButton("Close App") { dialog, _ ->
+                        dialog.dismiss()
+                        this.finish()
+                        exitProcess(0)
+                    }
+
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+
             }
         }
     }

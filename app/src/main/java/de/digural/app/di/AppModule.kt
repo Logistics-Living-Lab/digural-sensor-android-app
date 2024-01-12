@@ -26,6 +26,7 @@ import de.digural.app.device.DeviceRepository
 import de.digural.app.location.LocationService
 import de.digural.app.mqtt.MqttManager
 import de.digural.app.mqtt.MqttMessagePersistence
+import de.digural.app.permission.PermissionsManager
 import de.digural.app.tracking.BackgroundServiceWatcher
 import de.digural.app.tracking.TrackingManager
 import de.digural.app.update.UpdateManager
@@ -45,11 +46,8 @@ class AppModule() {
     @Provides
     fun provideDatabase(application: Application): AppDatabase {
         return Room.databaseBuilder(
-            application,
-            AppDatabase::class.java,
-            de.digural.app.AppConstants.ROOM_DB_NAME
-        )
-            .build()
+            application, AppDatabase::class.java, de.digural.app.AppConstants.ROOM_DB_NAME
+        ).build()
     }
 
     @Singleton
@@ -79,8 +77,7 @@ class AppModule() {
     @Singleton
     @Provides
     fun provideBluetoothScanner(
-        application: Application,
-        bluetoothAdapter: BluetoothAdapter
+        application: Application, bluetoothAdapter: BluetoothAdapter
     ): BluetoothScanner {
         return BluetoothScanner(application, bluetoothAdapter)
     }
@@ -145,20 +142,14 @@ class AppModule() {
         application: Application
     ): TrackingManager {
         return TrackingManager(
-            mqttManager,
-            authManager,
-            deviceRepository,
-            powerManager,
-            batteryManager,
-            application
+            mqttManager, authManager, deviceRepository, powerManager, batteryManager, application
         )
     }
 
     @Singleton
     @Provides
     fun provideUpdateManager(
-        application: Application,
-        appUpdateManager: AppUpdateManager
+        application: Application, appUpdateManager: AppUpdateManager
     ): UpdateManager {
         return UpdateManager(application, appUpdateManager)
     }
@@ -185,6 +176,12 @@ class AppModule() {
         application: Application
     ): BatteryManager {
         return application.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+    }
+
+    @Singleton
+    @Provides
+    fun providePermissionsManager(): PermissionsManager {
+        return PermissionsManager()
     }
 
 //    @Singleton
