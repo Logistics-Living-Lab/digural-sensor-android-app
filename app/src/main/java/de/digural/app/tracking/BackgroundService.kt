@@ -157,13 +157,13 @@ class BackgroundService() : Service() {
             registerReceiver(
                 mBroadcastReceiver,
                 IntentFilter(de.digural.app.AppConstants.TRACKING_NOTIFICATION_STOP_ACTION),
-                RECEIVER_NOT_EXPORTED
+                RECEIVER_EXPORTED
             )
 
             registerReceiver(
                 mBroadcastReceiver,
                 IntentFilter(de.digural.app.AppConstants.FORCE_RECONNECT_ACTION),
-                RECEIVER_NOT_EXPORTED
+                RECEIVER_EXPORTED
             )
         } else {
             registerReceiver(
@@ -239,7 +239,7 @@ class BackgroundService() : Service() {
             this,
             1002,
             intent,
-            FLAG_UPDATE_CURRENT or getCompatImmutableFlag()
+            FLAG_IMMUTABLE
         )
 
         val forceReconnectIntent = Intent(de.digural.app.AppConstants.FORCE_RECONNECT_ACTION)
