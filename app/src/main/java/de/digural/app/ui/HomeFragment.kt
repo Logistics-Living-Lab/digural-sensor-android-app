@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ import de.digural.app.bluetooth.BluetoothConnectionState
 import de.digural.app.bluetooth.BluetoothDeviceType
 import de.digural.app.device.DeviceEntity
 import de.digural.app.location.LocationValue
+import de.digural.app.theming.ThemingManager
 import de.digural.app.tracking.TrackingState
 
 @AndroidEntryPoint
@@ -301,7 +303,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private fun styleFabButtonActive(fabButton: FloatingActionButton) {
         fabButton.backgroundTintList =
-            ColorStateList.valueOf(resources.getColor(R.color.light_blue_600))
+            ColorStateList.valueOf(
+                viewModel.themingManager.getThemeColor(
+                    context,
+                    R.attr.colorPrimary
+                )
+            )
     }
 
     inner class DeviceTabsAdapter(
@@ -309,6 +316,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         private val lifecycleOwner: LifecycleOwner
     ) :
         RecyclerView.Adapter<DeviceTabsAdapter.ViewHolder>() {
+
 
         inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
             lateinit var item: DeviceEntity
@@ -349,7 +357,13 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 } else if (it == BluetoothConnectionState.CONNECTED) {
                     setButtonColor(holder, R.color.light_green)
                 } else {
-                    setButtonColor(holder, R.color.light_blue_900)
+                    setButtonColor(
+                        holder,
+                        viewModel.themingManager.getThemeColorResourceId(
+                            context,
+                            R.attr.colorPrimary
+                        )
+                    )
                 }
             }
         }
@@ -366,10 +380,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         protected fun setButtonColor(holder: ViewHolder, color: Int) {
             context?.let { context ->
                 holder.btnDevice.setBackgroundColor(
-                    ContextCompat.getColor(
-                        context,
-                        color
-                    )
+                    viewModel.themingManager.getColor(context, color)
                 )
             }
         }

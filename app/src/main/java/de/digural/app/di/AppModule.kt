@@ -27,6 +27,7 @@ import de.digural.app.location.LocationService
 import de.digural.app.mqtt.MqttManager
 import de.digural.app.mqtt.MqttMessagePersistence
 import de.digural.app.permission.PermissionsManager
+import de.digural.app.theming.ThemingManager
 import de.digural.app.tracking.BackgroundServiceWatcher
 import de.digural.app.tracking.TrackingManager
 import de.digural.app.update.UpdateManager
@@ -182,6 +183,12 @@ class AppModule() {
     @Provides
     fun providePermissionsManager(): PermissionsManager {
         return PermissionsManager()
+    }
+
+    @Singleton
+    @Provides
+    fun provideThemingManager(): ThemingManager {
+        return ThemingManager()
     }
 
 //    @Singleton

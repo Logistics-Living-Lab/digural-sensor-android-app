@@ -18,6 +18,7 @@ import de.digural.app.location.LocationService
 import de.digural.app.location.LocationValue
 import de.digural.app.location.event.LocationUpdateEvent
 import de.digural.app.sensor.SensorValue
+import de.digural.app.theming.ThemingManager
 import de.digural.app.tracking.BackgroundServiceWatcher
 import de.digural.app.tracking.TrackingManager
 import de.digural.app.tracking.TrackingState
@@ -41,6 +42,7 @@ class HomeViewModel @Inject constructor(
     private val trackingManager: TrackingManager,
     private val application: Application,
     private val updateManager: UpdateManager,
+    val themingManager: ThemingManager
 ) : ViewModel() {
     private val LOG_TAG = HomeViewModel::class.java.name
 
