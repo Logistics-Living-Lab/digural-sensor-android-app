@@ -27,7 +27,7 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/ic_launcher_de4l"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DE4LApp">
+        android:theme="@style/Theme.DiguralApp">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -39,7 +39,7 @@
             android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.DE4LApp.NoActionBar">
+            android:theme="@style/Theme.DiguralApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
