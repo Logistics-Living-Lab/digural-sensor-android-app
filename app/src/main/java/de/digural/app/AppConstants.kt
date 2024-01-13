@@ -15,7 +15,7 @@ class AppConstants {
         const val AUTH_DISCOVERY_URI = de.digural.app.BuildConfig.AUTH_DISCOVERY_URI
         const val AUTH_USERNAME_CLAIM_KEY = de.digural.app.BuildConfig.AUTH_USERNAME_CLAIM_KEY
 
-        //        const val AUTH_MQTT_CLAIM_RESOURCE = de.digural.app.BuildConfig.AUTH_MQTT_CLAIM_RESOURCE
+        const val AUTH_MQTT_CLAIM_RESOURCE = de.digural.app.BuildConfig.AUTH_MQTT_CLAIM_RESOURCE
         const val AUTH_MQTT_CLAIM_ROLE = de.digural.app.BuildConfig.AUTH_MQTT_CLAIM_ROLE
 
         // BLUETOOTH

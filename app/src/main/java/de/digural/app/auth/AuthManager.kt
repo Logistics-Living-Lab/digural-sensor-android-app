@@ -143,7 +143,7 @@ class AuthManager(val application: Application) {
 
                 //CHECK MQTT ACCESS
                 if (!userInfo.hasResourceRole(
-                        de.digural.app.AppConstants.AUTH_CLIENT_ID,
+                        de.digural.app.AppConstants.AUTH_MQTT_CLAIM_RESOURCE,
                         de.digural.app.AppConstants.AUTH_MQTT_CLAIM_ROLE
                     )
                 ) {
@@ -243,7 +243,7 @@ class AuthManager(val application: Application) {
     private fun hasTokenMqttAccess(token: JWT): Boolean {
         val resourcesAccessMap = token.getClaim("resource_access").asObject(HashMap::class.java)
         val resourceRolesObject =
-            resourcesAccessMap?.get(de.digural.app.AppConstants.AUTH_CLIENT_ID)
+            resourcesAccessMap?.get(de.digural.app.AppConstants.AUTH_MQTT_CLAIM_RESOURCE)
 
         if (resourceRolesObject != null) {
             val resourceRolesMap = resourceRolesObject as Map<String, List<String>>

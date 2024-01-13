@@ -30,7 +30,7 @@ android {
         buildConfigField("String", "AUTH_REDIRECT_URI", properties['AUTH_REDIRECT_URI'])
         buildConfigField("String", "AUTH_REDIRECT_URI_END_SESSION", properties['AUTH_REDIRECT_URI_END_SESSION'])
         buildConfigField("String", "AUTH_USERNAME_CLAIM_KEY", properties['AUTH_USERNAME_CLAIM_KEY'])
-//        buildConfigField("String", "AUTH_MQTT_CLAIM_RESOURCE", properties['AUTH_MQTT_CLAIM_RESOURCE'])
+        buildConfigField("String", "AUTH_MQTT_CLAIM_RESOURCE", properties['AUTH_MQTT_CLAIM_RESOURCE'])
         buildConfigField("String", "AUTH_MQTT_CLAIM_ROLE", properties['AUTH_MQTT_CLAIM_ROLE'])
         buildConfigField("String", "MQTT_SERVER_URL", properties['MQTT_SERVER_URL'])
         buildConfigField("String", "TRACKING_ONLY_ROLE", properties['TRACKING_ONLY_ROLE'])
