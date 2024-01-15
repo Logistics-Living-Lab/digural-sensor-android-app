@@ -18,8 +18,8 @@ class SplashScreenViewModel @Inject constructor() :
         viewModelScope.launch {
             //Remove Splash Screen from stack
             val navOptions = NavOptions.Builder().setPopUpTo(R.id.splashScreen, true).build()
-            EventBus.getDefault()
-                .post(NavigationEvent(R.id.action_splashScreenFinished, navOptions))
+//            EventBus.getDefault()
+//                .post(NavigationEvent(R.id.action_splashScreenFinished, navOptions))
         }
     }
 }

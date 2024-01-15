@@ -2,36 +2,68 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".ui.SplashScreen">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="338dp"
-        android:layout_height="374dp"
-        android:src="@drawable/logo_de4l"
+        android:id="@+id/ivMfundLogo"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:src="@drawable/mfund_logo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/ivBmdvLogo" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="185dp"
-        android:layout_height="145dp"
-        android:src="@drawable/bmwk_logo_eng"
+        android:id="@+id/ivBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/digural"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/ivUniLogo"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ImageView
+        android:id="@+id/ivBmdvLogo"
+        android:layout_width="202dp"
+        android:layout_height="162dp"
+        android:src="@drawable/bmdv_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="342dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/infai"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        android:id="@+id/ivUniLogo"
+        android:layout_width="198dp"
+        android:layout_height="90dp"
+        android:src="@drawable/uni_leipzig_logo"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="412dp"
+        android:layout_height="245dp"
+        android:cropToPadding="true"
+        android:src="@drawable/digural_logo_small"
+        app:layout_constraintBottom_toTopOf="@+id/ivBmdvLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBanner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="202dp"
+        android:layout_height="89dp"
+        android:src="@drawable/lll_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivUniLogo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
