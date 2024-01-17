@@ -39,8 +39,8 @@ class SplashScreen : Fragment() {
         return inflater.inflate(R.layout.fragment_splash_screen, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         coroutineScope.launch {
             while (true) {
                 delay(de.digural.app.AppConstants.SPLASH_SCREEN_DELAY_IN_SECONDS * 1000)
@@ -51,8 +51,6 @@ class SplashScreen : Fragment() {
                 }
             }
         }
-
-
     }
 
     private fun hasAllPermissions(): Boolean {

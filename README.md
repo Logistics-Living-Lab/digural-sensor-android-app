@@ -1,13 +1,13 @@
-# DE4L Sensing App 
+# diGuRaL Sensing App 
 ![Project Logo][project-logo]
 
 ![Made with love in Germany](https://madewithlove.now.sh/de?heart=true&colorA=%23000000&colorB=%23299fc7&template=for-the-badge)
 
 ## Motivation
 
-Android App for connecting Bluetooth environment sensors to an Android smartphone and transmitting values in real-time via MQTT and OAuth2 authentication. See the [App - Quickstart Guide](documentation/quickstart-airbeam2-de4l-app.pdf)
+Android App for connecting Bluetooth environment sensors to an Android smartphone and transmitting values in real-time via MQTT and OAuth2 authentication. See the [App - Quickstart Guide](documentation/quickstart-digural-sense-app.pdf)
 
-Currently the app is used in the research project [DE4L](https://de4l.io/en/about-de4l/) (Data Economy 4 Advanced Logistics) funded by the German Federal Ministry for Economic Affairs and Energy (01MD19008A).
+Currently the app is used in the research project [diGuRaL](https://bmdv.bund.de/SharedDocs/DE/Artikel/DG/mfund-projekte/digural.html) (Digitale Gestaltung des urbanen Raums in Leipzig) funded by the German Federal Ministry for Digital and Transport (19FS2038F).
 
 
 
@@ -15,7 +15,7 @@ Currently the app is used in the research project [DE4L](https://de4l.io/en/abou
 
 <a href='https://play.google.com/store/apps/details?id=io.de4l.app&utm_source=github&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width='300'/></a>
 
-Developed by [InfAI Management GmbH](https://infai.org/) in Leipzig, Germany.
+Developed by [Logistics Living Lab / Leipzig University](https://logistics-living-lab.de/) in Leipzig, Germany.
 
 ## Features
 - Real-time data connection using MQTT
@@ -62,19 +62,15 @@ APP_CLIENT_RESOURCE="{CLIENT-RESOURCE}"                         #App Oauth Resou
 - [AIRBEAM2] AirBeam2 sensor occasionally produces unparseable lines
 - [PAHO] If MQTT client is connected to a mobile network and device is connected to WiFi, MQTT connection stays in mobile network
 
-## Backend Architecture - DE4L Sensor Data Platform
-![alt text][platform-architecture]
 
-
-[project-logo]: documentation/logos/project-logo.png "DE4L Project Logo"
-[platform-architecture]: documentation/de4l-sensor-data-platform-architecture.png "DE4L Sensor Data Platform Architecture"
-[app-teaser]: documentation/files/app-teaser-1080p.png "App Teaser"
+[project-logo]: documentation/logos/project-logo_1080p.png "diGuRaL Project Logo"
+[app-teaser]: documentation/files/app-teaser_full_1080p.png "App Teaser"
 
 ## License 
 ```text
 MIT License
 
-Copyright (c) 2022 InfAI Management GmbH
+Copyright (c) 2024 Universität Leipzig
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
