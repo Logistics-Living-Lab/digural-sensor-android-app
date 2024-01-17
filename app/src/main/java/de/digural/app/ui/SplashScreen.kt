@@ -21,10 +21,6 @@ class SplashScreen : Fragment() {
 
     private val LOG_TAG: String = SplashScreen::class.java.name
 
-    @Inject
-    lateinit var permissionsManager: PermissionsManager
-
-    private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
     private val viewModel: SplashScreenViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,26 +37,18 @@ class SplashScreen : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        coroutineScope.launch {
-            while (true) {
-                delay(de.digural.app.AppConstants.SPLASH_SCREEN_DELAY_IN_SECONDS * 1000)
-                if (hasAllPermissions()) {
-                    viewModel.onSplashScreenFinished()
-                } else {
-                    Log.w(LOG_TAG, "Missing permissions")
-                }
-            }
-        }
+        Log.w(LOG_TAG, "On Resume")
+        viewModel.startPermissionCheck(requireContext())
     }
 
-    private fun hasAllPermissions(): Boolean {
-        return this.permissionsManager.hasAllPermissions(requireContext())
+    override fun onPause() {
+        super.onPause()
+        viewModel.stopPermissionCheck()
     }
 
-    override fun onStop() {
-        coroutineScope.cancel()
-        super.onStop()
-    }
+//    override fun onStop() {
+//        super.onStop()
+//    }
 
 
 }
