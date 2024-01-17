@@ -97,9 +97,9 @@ dependencies {
     implementation 'com.google.android.play:app-update-ktx:2.1.0'
 
     implementation 'com.google.guava:guava:33.0.0-android'
-    implementation 'org.greenrobot:eventbus:3.2.0'
-    implementation 'joda-time:joda-time:2.10.10'
-    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'org.greenrobot:eventbus:3.3.1'
+    implementation 'joda-time:joda-time:2.12.6'
+    implementation 'commons-codec:commons-codec:1.16.0'
     implementation 'no.nordicsemi.android:ble-ktx:2.7.2'
 
     //MQTT
@@ -123,7 +123,7 @@ dependencies {
     ksp "androidx.room:room-compiler:2.6.1"
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
-    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.mockito:mockito-core:5.9.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
