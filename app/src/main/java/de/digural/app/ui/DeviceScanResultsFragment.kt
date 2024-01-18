@@ -87,17 +87,18 @@ class DeviceScanResultsFragment : Fragment() {
         viewModel.scanState.observe(viewLifecycleOwner) {
             when (it) {
                 NOT_SCANNING -> {
-                    tvScanHeader.text = "Searching finished"
+                    tvScanHeader.text = getString(R.string.devicescan_searching_finished)
                     if (devices.isEmpty()) {
                         Toast.makeText(
                             context,
-                            "No Bluetooth devices found!",
+                            getString(R.string.devicescan_no_bluetooth_devices_found),
                             Toast.LENGTH_LONG
                         )
                             .show()
                     }
                 }
-                SCANNING -> tvScanHeader.text = "Searching for BT devices..."
+                SCANNING -> tvScanHeader.text =
+                    getString(R.string.devicescan_searching_for_bt_devices)
                 else -> null //Throws error w/o else branch
             }
         }
@@ -148,7 +149,7 @@ class DeviceScanResultsFragment : Fragment() {
 
             holder.textView.text = item._name.value
             holder.tvDescription.text = item._macAddress.value
-            holder.btnConnect.text = "Link"
+            holder.btnConnect.text = getString(R.string.devicescan_link)
 
             holder.btnConnect.setOnClickListener {
                 onDeviceSelected(item)

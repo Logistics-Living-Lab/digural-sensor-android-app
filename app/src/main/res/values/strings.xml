@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">diGuRaL</string>
+    <string name="devicescan_searching_finished">Searching finished</string>
+    <string name="devicescan_no_bluetooth_devices_found">No Bluetooth devices found!</string>
+    <string name="devicescan_searching_for_bt_devices">Searching for BT devices...</string>
+    <string name="devicescan_link">Link</string>
 </resources>
