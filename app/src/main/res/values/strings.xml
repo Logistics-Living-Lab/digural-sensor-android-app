@@ -4,4 +4,23 @@
     <string name="devicescan_no_bluetooth_devices_found">No Bluetooth devices found!</string>
     <string name="devicescan_searching_for_bt_devices">Searching for BT devices...</string>
     <string name="devicescan_link">Link</string>
+    <string name="devices_disconnect">Disconnect</string>
+    <string name="devices_connecting">Connecting...</string>
+    <string name="devices_reconnecting">Reconnecting...</string>
+    <string name="devices_connect">Connect</string>
+    <string name="devices_alert_yes">Yes</string>
+    <string name="devices_alert_no">No</string>
+    <string name="home_no_sensors_connected">No Sensors connected</string>
+    <string name="home_sensors">" Sensors"</string>
+    <string name="home_version">Version: %1$s</string>
+    <string name="home_active">Active</string>
+    <string name="home_inactive">Inactive</string>
+    <string name="home_not_logged_in">Not Logged In</string>
+    <string name="home_unknown">UNKNOWN %1$s</string>
+    <string name="home_viewmodel_login_error">Login error: %1$s</string>
+    <string name="main_permission_dialog_message">Gimme permissions!</string>
+    <string name="main_permission_dialog_title">I am the title</string>
+    <string name="main_permissions_dialog_ok_button">OK</string>
+    <string name="main_permissions_dialog_title_close_button">Close App</string>
+    <string name="sensor_value_target"><![CDATA[Actual: %1$s --> Target: %2$s]]></string>
 </resources>

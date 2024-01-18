@@ -59,7 +59,11 @@ abstract class SensorValueFragment(private val deviceEntity: DeviceEntity?) : Fr
                 selectedDevice._targetConnectionState
             ).asLiveData().observe(viewLifecycleOwner) {
                 tvConnectionState.text =
-                    "Actual: ${selectedDevice._actualConnectionState.value} --> Target: ${selectedDevice._targetConnectionState.value}"
+                    getString(
+                        R.string.sensor_value_target,
+                        selectedDevice._actualConnectionState.value,
+                        selectedDevice._targetConnectionState.value
+                    )
             }
 
             selectedDevice._targetConnectionState.asLiveData().observe(viewLifecycleOwner) {

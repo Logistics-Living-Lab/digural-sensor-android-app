@@ -84,7 +84,7 @@ class DevicesFragment : Fragment() {
             )
 
             deviceView.setOnLongClickListener {
-                viewModel.onLongPress(it, viewHolder!!.item)
+                viewModel.onLongPress(it, viewHolder!!.item, this@DevicesFragment)
                 return@setOnLongClickListener true
             }
 
@@ -99,22 +99,26 @@ class DevicesFragment : Fragment() {
             device._actualConnectionState.asLiveData().observe(viewLifecycleOwner) {
                 when (it) {
                     BluetoothConnectionState.CONNECTED -> {
-                        holder.btnConnectDevice.text = "Disconnect"
+                        holder.btnConnectDevice.text = getString(R.string.devices_disconnect)
                         holder.btnConnectDevice.isEnabled = true
                     }
+
                     BluetoothConnectionState.CONNECTING -> {
-                        holder.btnConnectDevice.text = "Connecting..."
+                        holder.btnConnectDevice.text = getString(R.string.devices_connecting)
                         holder.btnConnectDevice.isEnabled = false
                     }
+
                     BluetoothConnectionState.RECONNECTING -> {
-                        holder.btnConnectDevice.text = "Reconnecting..."
+                        holder.btnConnectDevice.text = getString(R.string.devices_reconnecting)
                         holder.btnConnectDevice.isEnabled = false
                     }
+
                     BluetoothConnectionState.DISCONNECTED -> {
-                        holder.btnConnectDevice.text = "Connect"
+                        holder.btnConnectDevice.text = getString(R.string.devices_connect)
 //                    holder.btnConnectDevice.isEnabled =
 //                        viewModel.connectionState.value == BluetoothConnectionState.DISCONNECTED
                     }
+
                     else -> null //Throws error w/o else branch
                 }
             }

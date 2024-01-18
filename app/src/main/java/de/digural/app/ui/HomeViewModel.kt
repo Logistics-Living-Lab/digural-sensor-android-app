@@ -143,9 +143,10 @@ class HomeViewModel @Inject constructor(
                     authManager.login(activity)
                 } catch (e: Exception) {
                     authManager.logout(activity)
+                    val messageText = e.message ?: "Unknown error"
                     Toast.makeText(
                         application,
-                        "Login error: " + (e.message ?: "Unknown error"),
+                        activity.getString(R.string.home_viewmodel_login_error, messageText),
                         Toast.LENGTH_LONG
                     ).show()
                 }

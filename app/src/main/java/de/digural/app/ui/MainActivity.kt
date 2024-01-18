@@ -144,13 +144,13 @@ class MainActivity : AppCompatActivity() {
             if (grantResults.contains(PackageManager.PERMISSION_DENIED)) {
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
                 builder
-                    .setMessage("Gimme permissions!")
-                    .setTitle("I am the title")
-                    .setPositiveButton("OK") { dialog, _ ->
+                    .setMessage(getString(R.string.main_permission_dialog_message))
+                    .setTitle(getString(R.string.main_permission_dialog_title))
+                    .setPositiveButton(getString(R.string.main_permissions_dialog_ok_button)) { dialog, _ ->
                         dialog.dismiss()
                         this.checkPermissions()
                     }
-                    .setNegativeButton("Close App") { dialog, _ ->
+                    .setNegativeButton(getString(R.string.main_permissions_dialog_title_close_button)) { dialog, _ ->
                         dialog.dismiss()
                         this.finish()
                         exitProcess(0)

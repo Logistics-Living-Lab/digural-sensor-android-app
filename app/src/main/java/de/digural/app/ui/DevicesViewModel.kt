@@ -2,9 +2,11 @@ package de.digural.app.ui
 
 import android.app.AlertDialog
 import android.app.Application
+import android.content.Context
 import android.view.View
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import de.digural.app.R
 import de.digural.app.bluetooth.BluetoothConnectionState
 import de.digural.app.bluetooth.BluetoothDeviceManager
 import de.digural.app.bluetooth.event.ConnectToBluetoothDeviceEvent
@@ -37,14 +39,14 @@ class DevicesViewModel @Inject constructor(
         super.onCleared()
     }
 
-    fun onLongPress(view: View, device: DeviceEntity) {
+    fun onLongPress(view: View, device: DeviceEntity, fragment: DevicesFragment) {
         device.let {
             val builder = AlertDialog.Builder(view.context)
             builder.setMessage("Delete paired device [${it._macAddress.value}] from diGuRaL Sensor app?")
-                .setPositiveButton("Yes") { dialog, id ->
+                .setPositiveButton(fragment.getString(R.string.devices_alert_yes)) { dialog, id ->
                     onDeviceRemoveClicked(it)
                 }
-                .setNegativeButton("No") { dialog, id ->
+                .setNegativeButton(fragment.getString(R.string.devices_alert_no)) { dialog, id ->
                     //Do Nothing
                 }
 

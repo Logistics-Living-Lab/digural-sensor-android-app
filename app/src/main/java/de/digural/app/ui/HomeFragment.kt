@@ -105,10 +105,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
         viewModel.connectedDevices.observe(viewLifecycleOwner) { connectedDevices ->
             if (connectedDevices.isNotEmpty()) {
-                tvBtConnectFooter.text = connectedDevices.size.toString() + " Sensors"
+                tvBtConnectFooter.text = connectedDevices.size.toString() + getString(R.string.home_sensors)
                 styleFabButtonActive(btnBtConnect)
             } else {
-                tvBtConnectFooter.text = "No Sensors connected"
+                tvBtConnectFooter.text = getString(R.string.home_no_sensors_connected)
                 styleFabButtonInactive(btnBtConnect)
             }
         }
@@ -170,7 +170,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
 
         tvVersionInfo = view.findViewById(R.id.tvVersionInfo)
-        tvVersionInfo.text = "Version: ${viewModel.versionInfo}"
+        tvVersionInfo.text = getString(R.string.home_version, viewModel.versionInfo)
 
         renderUiForDevice(null)
 
@@ -180,12 +180,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
     fun onStartTracking() {
-        tvTrackingFooter.text = "Active"
+        tvTrackingFooter.text = getString(R.string.home_active)
         styleFabButtonActive(btnTracking)
     }
 
     fun onStopTracking() {
-        tvTrackingFooter.text = "Inactive"
+        tvTrackingFooter.text = getString(R.string.home_inactive)
         if (btnTracking.isEnabled) {
             styleFabButtonInactive(btnTracking)
         }
@@ -239,7 +239,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             tvUserFooter.text = userCapture.username
             styleFabButtonActive(btnUser)
         } else {
-            tvUserFooter.text = "Not Logged In"
+            tvUserFooter.text = getString(R.string.home_not_logged_in)
             styleFabButtonInactive(btnUser)
         }
 
@@ -369,7 +369,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
 
         protected fun getDeviceButtonText(device: DeviceEntity): String {
-            var text = (device._name.value ?: "UNKNOWN ${device.getBluetoothDeviceType()}")
+            var text = (device._name.value ?: getString(
+                R.string.home_unknown,
+                device.getBluetoothDeviceType()
+            ))
             val actualConnectionState = device._actualConnectionState.value
             if (actualConnectionState == BluetoothConnectionState.CONNECTING || actualConnectionState == BluetoothConnectionState.RECONNECTING) {
                 text += "..."
