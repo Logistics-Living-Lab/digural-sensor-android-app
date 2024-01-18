@@ -61,8 +61,10 @@ abstract class SensorValueFragment(private val deviceEntity: DeviceEntity?) : Fr
                 tvConnectionState.text =
                     getString(
                         R.string.sensor_value_target,
-                        selectedDevice._actualConnectionState.value,
-                        selectedDevice._targetConnectionState.value
+                        resources.getString(selectedDevice._actualConnectionState.value.getStringId())
+                            .uppercase(),
+                        resources.getString(selectedDevice._targetConnectionState.value.getStringId())
+                            .uppercase()
                     )
             }
 

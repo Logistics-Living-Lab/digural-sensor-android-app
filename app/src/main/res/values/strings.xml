@@ -38,4 +38,9 @@
     <string name="sensor_data_pm10">PM10</string>
     <string name="sensor_values_no_sensor_selected">No sensor selected</string>
     <string name="sensor_data_pressure">Pressure</string>
+    <string name="bluetooth_connection_state_connected">Connected</string>
+    <string name="bluetooth_connection_state_connecting">Connecting</string>
+    <string name="bluetooth_connection_state_reconnecting">Reconnecting</string>
+    <string name="bluetooth_connection_state_disconnected">Disconnected</string>
+    <string name="bluetooth_connection_state_none">None</string>
 </resources>

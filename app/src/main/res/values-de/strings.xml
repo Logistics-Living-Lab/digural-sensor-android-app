@@ -28,4 +28,9 @@
     <string name="sensor_data_humidity">Luftfeuchtigkeit</string>
     <string name="sensor_values_no_sensor_selected">Kein Sensor verbunden</string>
     <string name="sensor_data_pressure">Luftdruck</string>
+    <string name="bluetooth_connection_state_connected">Verbunden</string>
+    <string name="bluetooth_connection_state_connecting">Verbinde</string>
+    <string name="bluetooth_connection_state_reconnecting">Verbinde (erneut)</string>
+    <string name="bluetooth_connection_state_disconnected">Getrennt</string>
+    <string name="bluetooth_connection_state_none">Kein</string>
 </resources>
