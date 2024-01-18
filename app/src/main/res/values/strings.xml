@@ -43,4 +43,9 @@
     <string name="bluetooth_connection_state_reconnecting">Reconnecting</string>
     <string name="bluetooth_connection_state_disconnected">Disconnected</string>
     <string name="bluetooth_connection_state_none">None</string>
+    <string name="notification_tracking_disabled">No data transmission</string>
+    <string name="notification_tracking_running">Transmitting data</string>
+    <string name="notification_bluetooth_connection_none">No device connected</string>
+    <string name="notification_bluetooth_connection_connected">%1$d connected</string>
+    <string name="notification_stop_button_text">Stop</string>
 </resources>

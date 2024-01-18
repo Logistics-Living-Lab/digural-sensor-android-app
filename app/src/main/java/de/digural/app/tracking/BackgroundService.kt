@@ -202,13 +202,13 @@ class BackgroundService() : Service() {
     }
 
     private suspend fun updateNotification() {
-        var trackingStateText = "No data transmission"
-        var bluetoothConnectionText = "No device connected"
+        var trackingStateText = getString(R.string.notification_tracking_disabled)
+        var bluetoothConnectionText = getString(R.string.notification_bluetooth_connection_none)
 
         if (trackingManager.trackingState.value == TrackingState.TRACKING ||
             trackingManager.trackingState.value == TrackingState.LOCATION_ONLY
         ) {
-            trackingStateText = "Transmitting data"
+            trackingStateText = getString(R.string.notification_tracking_running)
         }
 
         when (bluetoothDeviceManager.hasConnectedDevices().firstOrNull()) {
@@ -218,7 +218,10 @@ class BackgroundService() : Service() {
                         .firstOrNull()
 
                 connectedDevices?.let {
-                    bluetoothConnectionText = "${connectedDevices.size} connected"
+                    bluetoothConnectionText = getString(
+                        R.string.notification_bluetooth_connection_connected,
+                        connectedDevices.size
+                    )
 
                 }
             }
@@ -281,7 +284,7 @@ class BackgroundService() : Service() {
                 .setSilent(true)
                 .addAction(
                     R.drawable.googleg_standard_color_18,
-                    "Stop",
+                    getString(R.string.notification_stop_button_text),
                     activityActionPendingIntent
                 )
                 .build()
