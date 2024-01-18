@@ -11,7 +11,7 @@
         android:id="@+id/tvDeviceAddress"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:text="No sensor selected"
+        android:text="@string/sensor_values_no_sensor_selected"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -23,4 +23,19 @@
     <string name="main_permissions_dialog_ok_button">OK</string>
     <string name="main_permissions_dialog_title_close_button">Close App</string>
     <string name="sensor_value_target"><![CDATA[Actual: %1$s --> Target: %2$s]]></string>
+    <string name="device_element_connect">Connect</string>
+    <string name="device_scan_legacy_bt_scan">Legacy BT Scan</string>
+    <string name="home_connection_button_header">Sensor</string>
+    <string name="home_user_button_header">User</string>
+    <string name="home_transmission_button_footer">Empty</string>
+    <string name="home_transmission_button_header">Tracking</string>
+    <string name="home_user_button_footer">Empty</string>
+    <string name="home_connection_button_footer">Empty</string>
+    <string name="sensor_data_temperature">Temperature</string>
+    <string name="sensor_data_humidity">Humidity</string>
+    <string name="sensor_data_pm1">PM1</string>
+    <string name="sensor_data_pm2_5">PM2.5</string>
+    <string name="sensor_data_pm10">PM10</string>
+    <string name="sensor_values_no_sensor_selected">No sensor selected</string>
+    <string name="sensor_data_pressure">Pressure</string>
 </resources>

@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="Legacy BT Scan"
+        android:text="@string/device_scan_legacy_bt_scan"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tbScan"
         app:layout_constraintEnd_toEndOf="@+id/tbScan"
