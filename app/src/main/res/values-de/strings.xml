@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">diGuRaL</string>
+    <string name="devicescan_searching_finished">Suche beendet</string>
+    <string name="devicescan_no_bluetooth_devices_found">Keine Bluetooth-Geräte gefunden!</string>
+    <string name="devicescan_searching_for_bt_devices">Suche nach Bluetooth-Geräten</string>
+    <string name="devicescan_link">Koppeln</string>
+    <string name="devices_disconnect">Trennen</string>
+    <string name="devices_connecting">Verbinde...</string>
+    <string name="devices_reconnecting">Verbinde (erneut) ...</string>
+    <string name="devices_connect">Verbinden</string>
+    <string name="devices_alert_yes">Ja</string>
+    <string name="devices_alert_no">Nein</string>
+    <string name="home_no_sensors_connected">Keine Sensoren verbunden</string>
+    <string name="home_sensors">Sensoren</string>
+    <string name="home_version">Version: %1$s</string>
+    <string name="home_active">Aktiv</string>
+    <string name="home_inactive">Inaktiv</string>
+    <string name="home_not_logged_in">Nicht eingeloggt</string>
+    <string name="home_unknown">UNBEKANNT %1$s</string>
+    <string name="home_viewmodel_login_error">Fehler beim Login: %1$s</string>
+    <string name="main_permissions_dialog_ok_button">OK</string>
+    <string name="main_permissions_dialog_title_close_button">App beenden</string>
+    <string name="sensor_value_target"><![CDATA[Ist: %1$s --> Ziel: %2$s]]></string>
+</resources>
