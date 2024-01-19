@@ -39,4 +39,6 @@
     <string name="notification_tracking_running">Datenübertragung aktiv</string>
     <string name="notification_bluetooth_connection_none">Kein Sensor verbunden</string>
     <string name="notification_bluetooth_connection_connected">%1$d verbunden</string>
+    <string name="devices_delete_paired_device_message">Kopplung mit Sensor [%1$s] löschen?</string>
+    <string name="devices_delete_paired_device_message">L</string>
 </resources>
