@@ -19,6 +19,8 @@
     <string name="home_not_logged_in">Nicht eingeloggt</string>
     <string name="home_unknown">UNBEKANNT %1$s</string>
     <string name="home_viewmodel_login_error">Fehler beim Login: %1$s</string>
+    <string name="main_permission_dialog_message">Die App benötigt Berechtigungen für die Erfassung des Standorts, die Erkennung von Bluetooth-Sensoren und die Anzeige einer Benachrichtigung, wenn die Ortung aktiviert ist.</string>
+    <string name="main_permission_dialog_title">Berechtigungen benötigt</string>
     <string name="main_permissions_dialog_ok_button">OK</string>
     <string name="main_permissions_dialog_title_close_button">App beenden</string>
     <string name="sensor_value_target"><![CDATA[Ist: %1$s --> Ziel: %2$s]]></string>

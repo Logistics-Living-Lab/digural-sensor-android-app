@@ -18,8 +18,8 @@
     <string name="home_not_logged_in">Not Logged In</string>
     <string name="home_unknown">UNKNOWN %1$s</string>
     <string name="home_viewmodel_login_error">Login error: %1$s</string>
-    <string name="main_permission_dialog_message">Gimme permissions!</string>
-    <string name="main_permission_dialog_title">I am the title</string>
+    <string name="main_permission_dialog_message">The app needs permissions for acquiring location, detect Bluetooth sensors and display a notification when tracking is enabled.</string>
+    <string name="main_permission_dialog_title">Permissions required</string>
     <string name="main_permissions_dialog_ok_button">OK</string>
     <string name="main_permissions_dialog_title_close_button">Close App</string>
     <string name="sensor_value_target"><![CDATA[Actual: %1$s --> Target: %2$s]]></string>
